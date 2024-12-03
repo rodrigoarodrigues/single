@@ -1,5 +1,7 @@
 package com.m4ricu.single.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,16 @@ public class SingleAPI {
         Artist artist = artistService.getRandomArtist();
         if (artist != null) {
             return ResponseEntity.ok(artist); // 200 OK
+        } else {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        }
+    }
+
+    @GetMapping("/api/artists")
+    public ResponseEntity<List<Artist>> getAllArtists() {
+        List<Artist> artists = artistService.getAllArtist();
+        if (artists != null) {
+            return ResponseEntity.ok(artists); // 200 OK
         } else {
             return ResponseEntity.notFound().build(); // 404 Not Found
         }

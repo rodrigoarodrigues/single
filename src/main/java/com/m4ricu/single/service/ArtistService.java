@@ -1,5 +1,6 @@
 package com.m4ricu.single.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,13 @@ public class ArtistService {
         Optional<Artist> optionalArtist = artistRepository.findRandomArtist();
         Artist artist = optionalArtist.get();
         return artist;
+
+    }
+
+    public List<Artist> getAllArtist() {
+
+        List<Artist> artists = artistRepository.findAllArtists();
+        return artists;
 
     }
 

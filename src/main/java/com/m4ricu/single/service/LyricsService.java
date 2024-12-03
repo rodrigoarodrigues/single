@@ -13,8 +13,8 @@ public class LyricsService {
     @Autowired
     private LyricsRepository lyricsRepository;
 
-    public <Optional> Lyrics getLyricsById(Long id) {
-        return lyricsRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Lyric não encontrado com o ID: " + id));
+    public <Optional> Lyrics getLyricsById(Long artistId) {
+        return lyricsRepository.findRandomLyricByArtistId(artistId)
+                .orElseThrow(() -> new EntityNotFoundException("Lyric não encontrado com o ID: "));
     }
 }

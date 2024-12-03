@@ -21,4 +21,12 @@ public class ArtistService {
         return artist;
 
     }
+
+    public Artist getArtistById(Long id) {
+
+        Optional<Artist> optionalArtist = artistRepository.findById(id);
+        Artist artist = optionalArtist.get();
+        return artist;
+
+    }
 }
